@@ -1,0 +1,28 @@
+{
+  "name": "ciphersqlstudio",
+  "version": "1.0.0",
+  "description": "A browser-based SQL learning platform for students",
+  "scripts": {
+    "install-all": "cd backend && npm install && cd ../frontend && npm install",
+    "setup-db": "cd backend && node scripts/setup-database.js",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
+    "start": "concurrently \"cd backend && npm start\" \"cd frontend && npm start\"",
+    "build": "cd frontend && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "author": "Nitish Kumar Choudhary",
+  "license": "MIT",
+  "keywords": [
+    "sql",
+    "learning",
+    "education",
+    "database",
+    "practice",
+    "postgresql",
+    "mongodb",
+    "react",
+    "express"
+  ]
+}

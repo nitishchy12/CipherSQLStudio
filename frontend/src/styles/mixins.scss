@@ -1,0 +1,90 @@
+@use './variables' as *;
+
+// Media queries
+@mixin mobile {
+  @media (max-width: #{$tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet}) and (max-width: #{$desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: #{$large-desktop}) {
+    @content;
+  }
+}
+
+// Button mixin
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-2 $spacing-4;
+  border: none;
+  border-radius: $border-radius;
+  font-family: $font-family;
+  font-size: $font-size-sm;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background-color: $primary;
+  color: $white;
+  
+  &:hover:not(:disabled) {
+    background-color: $primary-dark;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background-color: $gray-100;
+  color: $gray-700;
+  
+  &:hover:not(:disabled) {
+    background-color: $gray-200;
+  }
+}
+
+// Card mixin
+@mixin card {
+  background-color: $white;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow;
+  padding: $spacing-6;
+  
+  @include mobile {
+    padding: $spacing-4;
+  }
+}
+
+// Container mixin
+@mixin container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-4;
+  
+  @include mobile {
+    padding: 0 $spacing-3;
+  }
+}
